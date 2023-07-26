@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder, Validators, FormControl } from "@angular/forms"; // Import Validators
+import { FormGroup, FormBuilder, Validators } from "@angular/forms";
 import { Router } from '@angular/router';
 
 @Component({
@@ -20,11 +20,11 @@ export class SignupComponent implements OnInit {
 
   ngOnInit(): void {
     this.signupForm = this.formBuilder.group({
-      fullName: [''],
-      email: ['', [Validators.required, Validators.email]], // Add email validator
-      password: ['', [Validators.required, Validators.minLength(6)]], // Add password validator
-      mobile: ['', Validators.required,Validators.minLength(10),Validators.maxLength(10)],
-      role: ['user'] // Added role field with default value 'user'
+      fullName: ['', Validators.required],
+      email: ['', [Validators.required, Validators.email]],
+      password: ['', [Validators.required, Validators.minLength(6)]],
+      mobile: ['', [Validators.required, Validators.pattern(/^\d{10}$/)]],
+      role: ['user', Validators.required]
     });
   }
 
@@ -42,9 +42,9 @@ export class SignupComponent implements OnInit {
           this.router.navigate(['login']);
         },
         err => {
-          alert('Something went wrong');
+          console.error('Error occurred:', err);
+          alert('Something went wrong. Please check the console for more details.');
         }
       );
   }
 }
-
