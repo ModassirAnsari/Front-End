@@ -1,0 +1,24 @@
+<div class="product-details-container">
+  <h2 class="product-details-title">Product Details</h2>
+  <div class="container-fluid">
+
+    <div class="d-flex justify-content-end">
+      <button routerLink="/dashboard" class="btn btn-danger mx-2">Back to dashboard</button>
+
+      <button routerLink="/login" class="btn btn-danger mx-2">Logout</button>
+    </div>
+
+    <div class="product-info">
+      <p><strong>Supplier ID:</strong> {{ productId }}</p>
+      <p><strong>Price:</strong> {{ getProductPrice(productId) | currency }}</p>
+
+      <ng-container *ngIf="productMessage; else noProductMessage">
+        <p class="product-description">{{ productMessage }}</p>
+        <img *ngIf="productImageUrl" [src]="productImageUrl" alt="Product Image" class="product-image">
+      </ng-container>
+      <ng-template #noProductMessage>
+        <p class="no-product-message">Product not found.</p>
+      </ng-template>
+    </div>
+  </div>
+</div>
