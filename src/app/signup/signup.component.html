@@ -8,7 +8,7 @@
         </div>
 
         <form [formGroup]="signupForm" (ngSubmit)="signUp()" novalidate>
-          <div class="mb-1">
+          <div class="mb-0.3">
             <label for="exampleInputPassword2" class="form-label">Full Name</label>
             <input formControlName="fullName" type="text" class="form-control" id="exampleInputPassword2">
             <div *ngIf="signupForm.get('fullName')?.invalid && signupForm.get('fullName')?.touched" class="form-text text-danger">
@@ -16,7 +16,7 @@
             </div>
           </div>
 
-          <div class="mb-1">
+          <div class="mb-0.3">
             <label for="exampleInputPassword3" class="form-label">Mobile Number</label>
             <input formControlName="mobile" type="tel" class="form-control" id="exampleInputPassword3">
             <div *ngIf="signupForm.get('mobile')?.invalid && signupForm.get('mobile')?.touched" class="form-text text-danger">
@@ -24,7 +24,7 @@
             </div>
           </div>
 
-          <div class="mb-1">
+          <div class="mb-0.3">
             <label for="exampleInputEmail1" class="form-label">Email address</label>
             <input formControlName="email" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
             <div *ngIf="signupForm.get('email')?.invalid && signupForm.get('email')?.touched" class="form-text text-danger">
@@ -33,7 +33,7 @@
             <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
           </div>
 
-          <div class="mb-1">
+          <div class="mb-0.3">
             <label for="exampleInputPassword1" class="form-label">Password</label>
             <input formControlName="password" type="password" class="form-control" id="exampleInputPassword1">
             <div *ngIf="signupForm.get('password')?.invalid && signupForm.get('password')?.touched" class="form-text text-danger">
@@ -41,7 +41,7 @@
             </div>
           </div>
 
-          <div class="mb-1">
+          <div class="mb-0.3">
             <label for="exampleInputRole" class="form-label">Role</label>
             <select formControlName="role" class="form-select" id="exampleInputRole" aria-label="Select Role">
               <option value="">Select Role</option>
