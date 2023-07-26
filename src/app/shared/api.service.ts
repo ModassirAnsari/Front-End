@@ -8,19 +8,19 @@ export class ApiService {
 
   constructor(private http :HttpClient) { }
   postSupplier(data :any){
-    return this.http.post<any>("http://localhost:1998/suppliers",data)
+    return this.http.post<any>("https://supplier-backend2.onrender.com/suppliers",data)
     .pipe(map((res:any)=>{
       return res;
     }))
   }
   getSupplier(){
-    return this.http.get<any>("http://localhost:1998/suppliers")
+    return this.http.get<any>("https://supplier-backend2.onrender.com/suppliers")
     .pipe(map((res:any)=>{
       return res;
     }))
   }
   updateSupplier(data :any,id:number){
-  return this.http.put<any>("http://localhost:1998/suppliers/"+id,data)
+  return this.http.put<any>("https://supplier-backend2.onrender.com/suppliers/"+id,data)
     .pipe(map((res:any)=>{
       return res;
     }))
@@ -28,7 +28,7 @@ export class ApiService {
  
   // ============
   getProductDetails(productId: number) {
-    return this.http.get<any>(`http://localhost:1998/suppliers/${productId}`)
+    return this.http.get<any>(`https://supplier-backend2.onrender.com/suppliers/${productId}`)
       .pipe(map((res: any) => {
         return res;
       }));
@@ -36,7 +36,7 @@ export class ApiService {
   // ==========
 
     deleteSupplier(id:number){
-      return this.http.delete<any>("http://localhost:1998/suppliers/"+id)
+      return this.http.delete<any>("https://supplier-backend2.onrender.com/suppliers/"+id)
     .pipe(map((res:any)=>{
       return res;
     }))

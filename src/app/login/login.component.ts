@@ -114,7 +114,7 @@ export class LoginComponent implements OnInit {
 
     this.loading = true;
 
-    this.http.post<any>('http://localhost:1998/login', userCredentials).subscribe(
+    this.http.post<any>('https://supplier-backend2.onrender.com/login', userCredentials).subscribe(
       (res) => {
         this.loading = false;
         if (res.message === 'Login successful') {

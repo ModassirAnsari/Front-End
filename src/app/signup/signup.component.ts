@@ -34,7 +34,7 @@ export class SignupComponent implements OnInit {
       return;
     }
 
-    this.http.post<any>('http://localhost:1998/signup', this.signupForm.value)
+    this.http.post<any>('https://supplier-backend2.onrender.com/signup', this.signupForm.value)
       .subscribe(
         res => {
           alert('Signup Successful');
