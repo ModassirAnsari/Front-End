@@ -7,43 +7,55 @@
           <h6>Register !!</h6>
         </div>
 
-        <!-- Add the 'novalidate' attribute to disable HTML5 validation -->
-
         <form [formGroup]="signupForm" (ngSubmit)="signUp()" novalidate>
           <div class="mb-1">
-            <label for="exampleInputPassword2" class="form-label">Full Name</label>          
-            <input formControlName="fullName" type="text" class="form-control" id="exampleInputPassword2" required>
+            <label for="exampleInputPassword2" class="form-label">Full Name</label>
+            <input formControlName="fullName" type="text" class="form-control" id="exampleInputPassword2">
+            <div *ngIf="signupForm.get('fullName')?.invalid && signupForm.get('fullName')?.touched" class="form-text text-danger">
+              Full Name is required.
+            </div>
           </div>
 
           <div class="mb-1">
             <label for="exampleInputPassword3" class="form-label">Mobile Number</label>
-            <input formControlName="mobile" type="tel" class="form-control" id="exampleInputPassword3" required pattern="[0-9]+">
-            <div class="form-text text-danger">*Should be numeric of length 10</div>
+            <input formControlName="mobile" type="tel" class="form-control" id="exampleInputPassword3">
+            <div *ngIf="signupForm.get('mobile')?.invalid && signupForm.get('mobile')?.touched" class="form-text text-danger">
+              Mobile number is required and should be numeric of length 10.
+            </div>
           </div>
 
           <div class="mb-1">
             <label for="exampleInputEmail1" class="form-label">Email address</label>
-            <input formControlName="email" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" required>
-            <div class="form-text text-danger">*Email is required</div>
+            <input formControlName="email" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+            <div *ngIf="signupForm.get('email')?.invalid && signupForm.get('email')?.touched" class="form-text text-danger">
+              Email is required and should be a valid email address.
+            </div>
             <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
           </div>
 
           <div class="mb-1">
             <label for="exampleInputPassword1" class="form-label">Password</label>
-            <input formControlName="password" type="password" class="form-control" id="exampleInputPassword1" required minlength="6">
-            <div class="form-text text-danger">*Password should be length of 6</div>       
+            <input formControlName="password" type="password" class="form-control" id="exampleInputPassword1">
+            <div *ngIf="signupForm.get('password')?.invalid && signupForm.get('password')?.touched" class="form-text text-danger">
+              Password is required and should be at least 6 characters long.
+            </div>
           </div>
 
           <div class="mb-1">
             <label for="exampleInputRole" class="form-label">Role</label>
-            <select formControlName="role" class="form-select" id="exampleInputRole" aria-label="Select Role" required>
+            <select formControlName="role" class="form-select" id="exampleInputRole" aria-label="Select Role">
               <option value="">Select Role</option>
               <option value="user">User</option>
               <option value="admin">Admin</option>
             </select>
+            <div *ngIf="signupForm.get('role')?.invalid && signupForm.get('role')?.touched" class="form-text text-danger">
+              Role selection is required.
+            </div>
           </div>
+
           <button type="submit" class="btn btn-primary mb-2">Signup</button>
         </form>
+
         <a routerLink="/login">Already registered? Click to login!</a>
       </div>
     </div>
